@@ -1,0 +1,144 @@
+/* =================================
+   1. General & Base Styles
+==================================== */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* =================================
+   2. Layout Sections
+==================================== */
+
+/* --- Header --- */
+.header-bg {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("images/header.jpg") no-repeat center center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 300px;
+}
+
+.header-bg h1 {
+  color: white;
+}
+
+.header-bg .profile-info .lead {
+  color: white;
+}
+
+.header-bg .profile-info p:not(.lead) {
+  color: white;
+  font-weight: bold;
+}
+
+
+/* --- Profil Section --- */
+.profile-photo-gradient {
+  object-fit: cover;
+  object-position: center 5%;
+  height: 100%;
+  display: block;
+  /* Default gradient: left to right */
+  -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+  mask-image: linear-gradient(to right, black 60%, transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Responsive override for the profile photo */
+@media (max-width: 767.98px) {
+  .profile-photo-gradient {
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+}
+
+
+/* --- Proyek Section (Card Component) --- */
+.card {
+  position: relative;
+  overflow: visible;
+  transition: all 0.5s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+/* Wrapper for card content to enable flex layout */
+.project-content-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* Constrains the text to prevent it from flowing under the mockup */
+.project-text {
+  /* Adjusted width to give more room */
+  max-width: 60%;
+  padding-right: 1rem;
+}
+
+
+/* Technology badges styling */
+.tech-stack .badge {
+  font-weight: 500;
+  padding: 0.4em 0.8em;
+  margin-top: 0.3rem;
+  border: 1px solid #dee2e6;
+}
+
+/* The overlapping mockup container */
+.mockup-carousel-container {
+  width: 280px;
+  position: absolute;
+  top: 50%;
+  /* This matches the card's p-4 padding on mobile */
+  right: 1.5rem;
+  transform: translateY(-50%);
+  z-index: 2;
+  border-radius: 8px;
+}
+
+.mockup-carousel-container .carousel-inner,
+.mockup-carousel-container .carousel-item img {
+  border-radius: 8px;
+}
+
+/* Responsive layout for the project card on smaller screens */
+@media (min-width: 992px) { /* This targets 'lg' screens and up */
+  .mockup-carousel-container {
+    /* This matches the card's px-lg-5 padding on desktops */
+    right: 3rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .project-content-wrapper {
+    flex-direction: column-reverse;
+  }
+
+  .project-text {
+    max-width: 100%;
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .mockup-carousel-container {
+    position: static;
+    transform: none;
+    width: 60%;
+    margin: 0 auto 1.5rem auto;
+  }
+}
+
+
+/* --- Footer --- */
+.custom-footer {
+  background-color: slategray;
+  color: white;
+}
